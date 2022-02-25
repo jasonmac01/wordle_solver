@@ -1,6 +1,6 @@
-# Usage
+### Usage
 ```
-> wordle_solver (main) $ python3 wordle.py
+> python3 wordle.py
         First argument:
            A comma-sep-string of size WORD_SIZE (e.g. 5). Each token should be 1-2 chars in length. Valid tokens:
               1) ?   -> An unknown position
@@ -13,7 +13,7 @@
         https://drive.google.com/open?id=1oGDf1wjWp5RF_X9C7HoedhIWMh5uJs8s
 ```
 
-## Example, you've found V in two positional locations and {A, Y, T} are not in the word:
+### Example, you've found V in two positional locations and {A, Y, T} are not in the word:
 ```
 > $ python3 wordle.py VG,?,VG,?,? A,Y,T
 VIVID
@@ -24,7 +24,7 @@ VIVDA
 VIVER
 ```
 
-## Example, you've locked in V, but U and A are in incorrect positions and {Y, M, N} are not in the word:
+### Example, you've locked in V, but U and A are in incorrect positions and {Y, M, N} are not in the word:
 ```
 > python3 wordle.py VG,?,?,UY,AY  Y,M,N
 VAUCH
