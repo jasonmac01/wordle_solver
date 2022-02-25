@@ -66,8 +66,9 @@ class WordleSolver:
 
         non_letters = exclusion.split(",")
 
-
+        # Build a set of possible words
         possible_words = None
+
         i = 0
         for token in tokens:
             if len(token) > 2:
@@ -92,8 +93,13 @@ class WordleSolver:
                 else:
                     possible_words = possible_words.intersection(words)
 
-            if is_contained:
-                words = self._containment_map[char]
+            elif is_contained:
+                words = set() 
+                # Ensure the "yellow" letter is NOT at this position in the possible results
+                for word in self._containment_map[char]:
+                    if word[i] != char:
+                        words.add(word)
+
                 if possible_words is None:
                     possible_words = words
                 else:
@@ -106,5 +112,7 @@ class WordleSolver:
                 if letter not in word:
                     trimmed.add(word)
 
-        for word in trimmed:
+        sorted = list(trimmed)
+        sorted.sort()
+        for word in sorted:
             print(word)
