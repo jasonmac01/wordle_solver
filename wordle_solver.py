@@ -106,13 +106,15 @@ class WordleSolver:
                     possible_words = possible_words.intersection(words)
             i = i + 1
 
-        trimmed = set()
+        trimmed = []
         for word in possible_words:
-            for letter in non_letters:
-                if letter not in word:
-                    trimmed.add(word)
+            ok = True
+            for l in non_letters:
+                if l in word:
+                    ok = False
+            if ok:
+                trimmed.append(word)
 
-        sorted = list(trimmed)
-        sorted.sort()
-        for word in sorted:
-            print(word)
+        trimmed.sort()
+        for w in trimmed:
+            print(w)
